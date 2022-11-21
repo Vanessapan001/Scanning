@@ -185,5 +185,5 @@ A vulnerability scanner's essentially compares an indepth port scan to a list of
    
    - Penetration tests are manual tests performed by a security professional, thus vulnerability scanning is not common in actual penetration tests.
 
-While we will not use Nessus beyond this lesson, it is important for you to know that vulnerability scanning and vulnerability management are common first jobs in security and are often a gateway into penetration testing. 
+It is important for you to know that vulnerability scanning and vulnerability management are common first jobs in security and are often a gateway into penetration testing. 
 
