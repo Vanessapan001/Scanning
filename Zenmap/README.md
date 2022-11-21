@@ -1,4 +1,4 @@
-# Scanning---Zenmap
+# Zenmap
 
 ## Nmap and Zenmap
 
