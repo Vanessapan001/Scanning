@@ -1,4 +1,4 @@
-# Scanning---Nessus
+# Nessus
 
 ## Vulnerability Scanning 
 
