@@ -138,11 +138,6 @@ In this demonstration, you will conduct the following steps:
     - Security professionals can perform detailed offline searches of hundreds of exploit scripts from Exploit-DB using the locally checked-out copy of the online repository.
     - SearchSploit comes preinstalled on Kali Linux and should be updated regularly. 
   - After determining which exploits to use, exploits can be attempted in the **Exploitation** phase.
-  - Exploited access to a machine is typically granted in the form of terminal access, known as a **shell**.
-  - Two types of shells are **bind** and **reverse**.
-     - A **bind shell** is where the remote host opens a port for the current host to connect to. The current, local host then connects to that remote host's port.
-     - A **reverse shell** is where the remote host connects back to a port on the local host.
-
 
 ## 3. Exploitation Activity
 
