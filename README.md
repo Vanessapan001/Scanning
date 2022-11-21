@@ -14,6 +14,9 @@ Now that we are inside the network of our target, we will now perform reconnaiss
 
 Additionally, we can more aggressively gather information through a process called **scanning**.
 
- - **Scanning** is the second phase of a pen testing engagement, after Planning and Reconnaissance. Scanning uses tools to gather information such as network information and potential vulnerabilities.
- - While in our example we will scan our target from inside their network, scanning can also be conducted externally and before initial access.
- - **Nessus**, **Hping**, and **Nmap** are tools which we often utilize to conduct scanning.
+  - **Scanning** is the second phase of a pen testing engagement, after Planning and Reconnaissance. Scanning uses tools to gather information such as network information and potential vulnerabilities.
+    - While in our example we scanned our target from inside the network, scanning is often conducted externally, before initial access.
+  - **Nessus**, **Hping**, and **Nmap** are tools which we often utilize to conduct scanning.
+  - **Zenmap** is the GUI version of Nmap. It provides an easy-to-use tool to automate scanning tasks.
+  - **NSEs (Nmap scripting engines)** are scripts that are commonly used to test whether a service is vulnerable to an exploit. 
+  - **SearchSploit** is a command-line utility for Exploit-DB that allows you to take an offline copy of the Exploit Database with you wherever you go.
