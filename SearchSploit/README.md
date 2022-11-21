@@ -130,3 +130,62 @@ In this demonstration, you will conduct the following steps:
       - `rhost=172.168.0.10`: IP address of the remote host.
       - `rport=1234`: Port number of the remote host. 
       - `pages=/cgi-bin/status`: The specific page that you are trying to attack. 
+      
+### Summary 
+
+  - **Exploit-DB.com** is a popular online database that contains publicly disclosed exploits, cataloged according to their **Common Vulnerability and Exposure (CVE)** identifiers.
+  - **SearchSploit** is a command-line utility for Exploit-DB that allows you to take an offline copy of the entire Exploit database with you wherever you go.
+    - Security professionals can perform detailed offline searches of hundreds of exploit scripts from Exploit-DB using the locally checked-out copy of the online repository.
+    - SearchSploit comes preinstalled on Kali Linux and should be updated regularly. 
+  - After determining which exploits to use, exploits can be attempted in the **Exploitation** phase.
+  - Exploited access to a machine is typically granted in the form of terminal access, known as a **shell**.
+  - Two types of shells are **bind** and **reverse**.
+     - A **bind shell** is where the remote host opens a port for the current host to connect to. The current, local host then connects to that remote host's port.
+     - A **reverse shell** is where the remote host connects back to a port on the local host.
+
+
+## 3. Exploitation Activity
+
+1. Refer to your past Nmap or Zenmap scans, and look in the scan results for Metasploitable2. 
+   - If you cannot find it by hostname, it will be the machine with the most ports open.
+
+![image](https://user-images.githubusercontent.com/118358126/203073079-867b305f-3c55-4cd1-a685-a036d715308f.png)
+
+ - or type `nmap -sV 172.22.117.150` in Kali.
+
+2. Several of these services are exploitable; however, one is exploitable with a Python script. Using `searchsploit` in Kali, search for any exploits around the service that is **listening on port 21**. You're searching for an exploit that allows you to execute a backdoor and is written in Python.
+
+![image](https://user-images.githubusercontent.com/118358126/203073931-a6f0749f-6077-40b2-9887-57f9307f1ca2.png)
+
+   - It's important to examine scripts before running them. Some scripts require variables to be edited within the script, whereas others can have variables passed through the command line. 
+   - `searchsploit -x 49757` to search the file
+
+3. Edit the script in nano. The path that is listed on the right is relative to the `/usr/share/exploitdb/exploit` directory, e.g., `/usr/share/exploitdb/exploit/unix/remote/xxxxx.py`.
+
+![image](https://user-images.githubusercontent.com/118358126/203074041-874ca2a9-1010-4aa0-ab8d-11b2ad69aaf5.png)
+
+ - `nano /usr/share/exploitdb/exploits/unix/remote/49757.py`
+
+4. We can tell from the two variables `args` and `host` that this script accepts the IP address of the vulnerable host as an argument, so there is no need to edit the script. Close the script using ctrl+X.
+
+![image](https://user-images.githubusercontent.com/118358126/203074273-6fe7ccdd-15d7-477f-90eb-934bcffed5a5.png)
+
+Close the script using ctrl+X.
+
+5. Run the script without any arguments to see the output of the script. 
+
+    - `python /usr/share/exploitdb/exploits/unix/remote/49757.py`
+
+    - The following image shows the script's output:
+
+![image](https://user-images.githubusercontent.com/118358126/203074376-d3a6a6f8-4bb6-41e9-8702-780841306821.png)
+
+
+6. Now, pass in the host IP address as an argument, and run the script again. You should see a message saying "Success, shell opened." Type in a Linux command to check if the shell works.
+
+    - `python /usr/share/exploitdb/exploits/unix/remote/49757.py 172.22.117.150`
+
+    - The following image shows the script's output:
+
+![image](https://user-images.githubusercontent.com/118358126/203074425-5cf58dfb-1767-4011-9c67-cedf055d1413.png)
+
